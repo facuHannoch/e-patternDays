@@ -1,4 +1,4 @@
-package com.qlairoslabs.mobileapp
+package com.qlairoslabs.patterndays
 
 import io.flutter.embedding.android.FlutterActivity
 

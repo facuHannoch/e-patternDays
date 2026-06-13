@@ -77,7 +77,7 @@ class _HistoryScreenState extends State<HistoryScreen> {
                     'Habits: $completedHabits/$totalHabits completed',
                     style: Theme.of(context).textTheme.bodySmall,
                   ),
-                  if ((entry['notes'] as String?).isNotEmpty)
+                  if ((entry['notes'] as String?)?.isNotEmpty ?? false)
                     Padding(
                       padding: const EdgeInsets.only(top: 8),
                       child: Text(
