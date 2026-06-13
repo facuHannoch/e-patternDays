@@ -1,106 +1,65 @@
 appId: com.qlairoslabs.patterndays
 ---
-# Screen 1: Login/Home screen
-- action: wait
-  duration: 2000
+# Wait for app to load
+- runFlow:
+    file: before_ui.yaml
 
-# Tap Sign In to enter app
+# Wait briefly after signing in
+- wait:
+    ms: 2000
+
+# Scroll down to see full Today screen
+- scroll:
+    direction: down
+
+# Wait for scroll animation
+- wait:
+    ms: 500
+
+# Tap Habits tab to navigate
 - tapOn:
-    text: "Sign In"
+    text: Habits
 
-# Wait for navigation to Today screen
-- action: wait
-  duration: 1500
+# Wait for navigation
+- wait:
+    ms: 1000
 
-# Screen 2: Today Check-In Screen
-- action: screenshot
-  name: "today_screen"
-
-# Scroll down to see more of the Today screen
-- action: scroll
-  direction: down
-  duration: 1000
-
-# Change mood slider
-- swipeElement:
-    direction: right
-    optional: true
-
-# Scroll down more
-- action: scroll
-  direction: down
-  duration: 1000
-
-# Tap notes field and type something
+# Tap History tab
 - tapOn:
-    id: "*notes*"
-    optional: true
-- typeText: "Great day!"
+    text: History
 
-# Scroll down to Save button
-- action: scroll
-  direction: down
-  duration: 500
+# Wait for navigation
+- wait:
+    ms: 1000
 
-# Tap Save Check-In button
+# Scroll down on History to see all entries
+- scroll:
+    direction: down
+
+# Wait
+- wait:
+    ms: 500
+
+# Tap Settings tab
 - tapOn:
-    text: "Save Check-In"
-    optional: true
+    text: Settings
 
-# Wait for feedback
-- action: wait
-  duration: 1000
+# Wait for navigation
+- wait:
+    ms: 1000
 
-# Navigate to Habits screen
-- tapOn:
-    text: "Habits"
+# Scroll down on Settings
+- scroll:
+    direction: down
 
-# Screen 3: Habits Screen
-- action: screenshot
-  name: "habits_screen"
-
-- action: wait
-  duration: 500
-
-# Navigate to History screen
-- tapOn:
-    text: "History"
-
-# Screen 4: History Screen
-- action: screenshot
-  name: "history_screen"
-
-- action: wait
-  duration: 500
-
-# Scroll through history
-- action: scroll
-  direction: down
-  duration: 1000
-
-# Navigate to Settings screen
-- tapOn:
-    text: "Settings"
-
-# Screen 5: Settings Screen
-- action: screenshot
-  name: "settings_screen"
-
-- action: wait
-  duration: 500
-
-# Scroll down to see more settings
-- action: scroll
-  direction: down
-  duration: 1000
+# Wait
+- wait:
+    ms: 500
 
 # Navigate back to Today
 - tapOn:
-    text: "Today"
+    text: Today
 
-# Final screenshot
-- action: screenshot
-  name: "final_today_screen"
-
-- action: wait
-  duration: 500
+# Wait for navigation back
+- wait:
+    ms: 1000
