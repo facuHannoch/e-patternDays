@@ -1,13 +1,19 @@
 import Link from 'next/link'
-import { createClient } from '@/lib/supabase/server'
 import { redirect } from 'next/navigation'
 
 export default async function Home() {
-  const supabase = await createClient()
-  const { data } = await supabase.auth.getUser()
-
-  if (data?.user) {
-    redirect('/dashboard')
+  // Skip Supabase check if environment variables are not configured
+  if (process.env.NEXT_PUBLIC_SUPABASE_URL && process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY) {
+    const { createClient } = await import('@/lib/supabase/server')
+    const supabase = await createClient()
+    try {
+      const { data } = await supabase.auth.getUser()
+      if (data?.user) {
+        redirect('/dashboard')
+      }
+    } catch {
+      // Continue to landing page if auth check fails
+    }
   }
 
   return (
