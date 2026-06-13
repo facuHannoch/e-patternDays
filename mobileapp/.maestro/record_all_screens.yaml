@@ -1,0 +1,33 @@
+appId: com.qlairoslabs.patterndays
+---
+- launchApp
+- waitForAnimationToEnd
+- assertVisible: "Sign In"
+
+# Tap Sign In
+- tapOn:
+    text: Sign In
+- waitForAnimationToEnd
+- assertVisible: "Today"
+
+# Tap Habits (using coordinates - 2nd tab from left at ~40%)
+- tapOn:
+    point: "40%, 95%"
+- waitForAnimationToEnd
+- assertVisible: "Exercise"
+
+# Tap History (using coordinates - 3rd tab from left at ~60%)
+- tapOn:
+    point: "60%, 95%"
+- waitForAnimationToEnd
+
+# Tap Settings (using coordinates - 4th tab from left at ~80%)
+- tapOn:
+    point: "80%, 95%"
+- waitForAnimationToEnd
+
+# Tap back to Today (using coordinates - 1st tab from left at ~20%)
+- tapOn:
+    point: "20%, 95%"
+- waitForAnimationToEnd
+- assertVisible: "Today"
