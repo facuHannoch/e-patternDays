@@ -1,0 +1,12 @@
+appId: com.qlairoslabs.patterndays
+---
+- tapOn:
+    text: Sign In
+- tapOn:
+    text: Habits
+- tapOn:
+    text: History
+- tapOn:
+    text: Settings
+- tapOn:
+    text: Today
