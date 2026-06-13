@@ -1,0 +1,4 @@
+appId: com.qlairoslabs.patterndays
+---
+- tapOn:
+    text: "Sign In"

@@ -1,0 +1,30 @@
+appId: com.qlairoslabs.patterndays
+---
+# Sign in to app
+- tapOn:
+    text: "Sign In"
+
+# Verify Today screen by tapping habit checkbox
+- tapOn:
+    id: "Exercise"
+    optional: true
+
+# Navigate to Habits screen
+- tapOn:
+    text: "Habits"
+
+# Scroll habits list
+- scroll:
+    direction: down
+
+# Navigate to History
+- tapOn:
+    text: "History"
+
+# Navigate to Settings
+- tapOn:
+    text: "Settings"
+
+# Navigate back to Today
+- tapOn:
+    text: "Today"

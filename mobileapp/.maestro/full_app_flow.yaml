@@ -1,0 +1,65 @@
+appId: com.qlairoslabs.patterndays
+---
+# Wait for app to load
+- runFlow:
+    file: before_ui.yaml
+
+# Wait briefly after signing in
+- wait:
+    ms: 2000
+
+# Scroll down to see full Today screen
+- scroll:
+    direction: down
+
+# Wait for scroll animation
+- wait:
+    ms: 500
+
+# Tap Habits tab to navigate
+- tapOn:
+    text: Habits
+
+# Wait for navigation
+- wait:
+    ms: 1000
+
+# Tap History tab
+- tapOn:
+    text: History
+
+# Wait for navigation
+- wait:
+    ms: 1000
+
+# Scroll down on History to see all entries
+- scroll:
+    direction: down
+
+# Wait
+- wait:
+    ms: 500
+
+# Tap Settings tab
+- tapOn:
+    text: Settings
+
+# Wait for navigation
+- wait:
+    ms: 1000
+
+# Scroll down on Settings
+- scroll:
+    direction: down
+
+# Wait
+- wait:
+    ms: 500
+
+# Navigate back to Today
+- tapOn:
+    text: Today
+
+# Wait for navigation back
+- wait:
+    ms: 1000

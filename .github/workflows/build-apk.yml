@@ -1,0 +1,54 @@
+name: Build APK
+
+on:
+  push:
+    branches: [ main, run2 ]
+  pull_request:
+    branches: [ main, run2 ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.24.0'
+          channel: 'stable'
+
+      - name: Get dependencies
+        working-directory: ./mobileapp
+        run: flutter pub get
+
+      - name: Build APK
+        working-directory: ./mobileapp
+        run: flutter build apk --release
+
+      - name: Upload APK artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: PatternDays-APK
+          path: mobileapp/build/app/outputs/flutter-apk/app-release.apk
+          retention-days: 30
+
+      - name: Create release notes
+        run: |
+          echo "## PatternDays APK Build" > release_notes.md
+          echo "**Build Date:** $(date)" >> release_notes.md
+          echo "**Commit:** ${{ github.sha }}" >> release_notes.md
+          echo "**Branch:** ${{ github.ref_name }}" >> release_notes.md
+
+      - name: Upload release notes
+        uses: actions/upload-artifact@v4
+        with:
+          name: Build-Info
+          path: release_notes.md
