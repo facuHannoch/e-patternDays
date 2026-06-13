@@ -12,7 +12,9 @@ After you finish, take screenshots and save them into your own private artifacts
 For capturing the result, the preferred tools are:
 
 - web: Playwright
-- mobile, Flutter: emulator + Maestro
+- mobile, Flutter: emulator (in headless mode) + Maestro
+
+Read PROOF_GUIDE.md for more details on how to capture the result.
 
 
 
@@ -23,3 +25,6 @@ When coding, ensure that errors are notified. Do not show them in the UI, but in
 Avoid doing quick solutions or duplicating logic to provide easy solutions.
 
 If you can't solve a problem, do not try a complete workaround just to complete the task. If you are asked for a set of screenshots of the app, for example, do not just create mockups with Python.
+
+
+When setting up projects, prefer to use commands that automatically set dependencies, like `flutter create`. Avoid manually setting specific dependencies, specially at the beginning, unless explicitly told to do so.
